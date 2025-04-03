@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>הנדסאי תוכנה באריאל - יצירת קבצי קוד ב-ZIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e8f0fe;
+            color: #202124;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #1a73e8;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        textarea, input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 18px;
+            box-sizing: border-box;
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        button, input[type="submit"] {
+            background-color: #1a73e8;
+            color: #ffffff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        button:hover, input[type="submit"]:hover {
+            background-color: #1558b0;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #5f6368;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>הנדסאי תוכנה באריאל</h1>
+    <h2>יצירת קבצי קוד להורדה ב-ZIP</h2>
+    <form method="POST">
+        <div id="code-container">
+            <textarea name="code" placeholder="הזן קוד כאן" rows="6"></textarea>
+            <input type="text" name="filename" placeholder="שם הקובץ">
+            <select name="format">
+                <option value="py">Python (.py)</option>
+                <option value="java">Java (.java)</option>
+                <option value="txt">Text (.txt)</option>
+                <option value="html">HTML (.html)</option>
+                <option value="css">CSS (.css)</option>
+                <option value="js">JavaScript (.js)</option>
+            </select>
+            <input type="text" name="folder" placeholder="שם התיקייה (אופציונלי)">
+        </div>
+        <button type="button" onclick="addCodeArea()">הוסף עוד קטע קוד</button>
+        <br><br>
+        <input type="submit" value="הורד ZIP">
+    </form>
+
+    <div class="footer">
+        נוצר במיוחד עבור סטודנטים להנדסאות תוכנה באריאל
+    </div>
+
+    <script>
+        function addCodeArea() {
+            const container = document.getElementById('code-container');
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <hr>
+                <textarea name="code" placeholder="הזן קוד כאן" rows="6"></textarea>
+                <input type="text" name="filename" placeholder="שם הקובץ">
+                <select name="format">
+                    <option value="py">Python (.py)</option>
+                    <option value="java">Java (.java)</option>
+                    <option value="txt">Text (.txt)</option>
+                    <option value="html">HTML (.html)</option>
+                    <option value="css">CSS (.css)</option>
+                    <option value="js">JavaScript (.js)</option>
+                </select>
+                <input type="text" name="folder" placeholder="שם התיקייה (אופציונלי)">`;
+            container.appendChild(div);
+        }
+    </script>
+</body>
+</html>
